@@ -982,8 +982,8 @@ export class NetworkDrive {
 				throw new Error("FUSE3 not installed.")
 			}
 
-			if (process.platform === "darwin" && !(await isFUSETInstalledOnMacOS())) {
-				throw new Error("FUSE-T not installed.")
+			if (process.platform === "darwin" && !(await isFUSETInstalledOnMacOS()) && !(await isMacFUSEInstalled())) {
+				throw new Error("Neither FUSE-T nor macOS FUSE is installed.")
 			}
 
 			if (process.platform === "win32") {
